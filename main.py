@@ -1,4 +1,4 @@
-from concessionaire import Concessionaire
+from vehicledealer import VehicleDealer
 
-concesionaria = Concessionaire()
+concesionaria = VehicleDealer()
 concesionaria.print_catalog()

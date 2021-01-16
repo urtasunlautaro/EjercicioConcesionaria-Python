@@ -3,7 +3,7 @@ from motorcycle import Motorcycle
 from operator import attrgetter
 
 
-class Concessionaire:
+class VehicleDealer:
 
     def __init__(self):
         self.vehicles = self.init_vehicles()
