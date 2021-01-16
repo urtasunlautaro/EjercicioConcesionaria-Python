@@ -1,5 +1,6 @@
 from car import Car
 from motorcycle import Motorcycle
+from electric_car import ElectricCar
 from operator import attrgetter
 
 
@@ -10,10 +11,11 @@ class VehicleDealer:
 
     def init_vehicles(self):
         peugeot_206 = Car("Peugeot", "206", 200000.00, 4)
-        honda_titan = Motorcycle("Honda", "Titan", 60000.00, "125c")
+        honda_titan = Motorcycle("Honda", "Titan", 60000.00, 125)
         peugeot_208 = Car("Peugeot", "208", 250000.00, 5)
-        yamaha_ybr = Motorcycle("Yamaha", "YBR", 80500.50, "160c")
-        return [peugeot_206, honda_titan, peugeot_208, yamaha_ybr]
+        yamaha_ybr = Motorcycle("Yamaha", "YBR", 80500.50, 160)
+        tesla_s = ElectricCar("Tesla", "S", 300000.00, 2, "120v")
+        return [peugeot_206, honda_titan, peugeot_208, yamaha_ybr, tesla_s]
 
     def print_vehicles(self):
         for vehicle in self.vehicles:
@@ -30,7 +32,7 @@ class VehicleDealer:
         print("Vehículo más barato: " + least_expensive.short_str())
 
     def print_sorted_by_price(self):
-        print("Vehículos ordenados por precio de mayor a menor")
+        print("Vehículos ordenados por precio de mayor a menor:")
         self.price_sort(True)
         for vehicle in self.vehicles:
             print(vehicle.short_str())
@@ -44,6 +46,12 @@ class VehicleDealer:
         for vehicle in contains_letter:
             print("-" + vehicle.short_str())
 
+    def print_luxury(self):
+        print("Vehículos de lujo:")
+        for vehicle in self.vehicles:
+            if vehicle.is_luxury():
+                print(vehicle.short_str())
+
     def price_sort(self, do_reverse):
         self.vehicles.sort(reverse=do_reverse, key=attrgetter("price"))
 
@@ -51,8 +59,11 @@ class VehicleDealer:
         print("=============================")
 
     def print_catalog(self):
+        self.print_vehicles()
         self.print_most_expensive()
         self.print_least_expensive()
         self.print_containing_letter("Y")
         self.print_line_separator()
         self.print_sorted_by_price()
+        self.print_line_separator()
+        self.print_luxury()

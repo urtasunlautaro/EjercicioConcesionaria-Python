@@ -9,3 +9,6 @@ class Vehicle:
 
     def short_str(self):
         return self.brand + " " + self.model
+
+    def is_luxury(self):
+        return False

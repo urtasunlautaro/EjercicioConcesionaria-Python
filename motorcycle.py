@@ -7,5 +7,11 @@ class Motorcycle(Vehicle):
         self.cilinders = cilinders
 
     def __str__(self):
-        return "Marca: %s // Modelo: %s // Cilindrada: %s // Precio: %s" % (
+        return "Marca: %s // Modelo: %s // Cilindrada: %sc // Precio: %s" % (
             self.brand, self.model, self.cilinders, self.format_price())
+
+    def is_luxury(self):
+        if self.cilinders > 150:
+            return True
+        else:
+            return False
