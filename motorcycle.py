@@ -11,7 +11,4 @@ class Motorcycle(Vehicle):
             self.brand, self.model, self.cilinders, self.format_price())
 
     def is_luxury(self):
-        if self.cilinders > 150:
-            return True
-        else:
-            return False
+        return self.cilinders > 150
